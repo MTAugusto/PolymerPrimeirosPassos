@@ -1,0 +1,66 @@
+<!-- importação do polymer-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="./componente-nome.html">
+
+<dom-module id="Ola-Polymer">
+ <template>
+   <style>
+     :host{
+       display: block;
+     }
+     paper-button{
+       background-color: var(--paper-red-500);
+       color:white;
+     }
+   </style>
+  <!-- <paper-button raised on-click="click">Click</paper-button> -->
+  <paper-button raised id="button">Click</paper-button>
+  <!-- Html Templates-->
+  <h1>Ola <componente-nome name="{{name}}"></componente-nome>tenho [[idade]] anos de idade</h1>
+  <!-- <h1>Ola {{name}} você tem [[idade]] anos de idade</h1> -->
+ </template>
+
+  <script>
+    Polymer({
+      is: "Ola-Polymer",
+      properties:{
+        name:{
+          type: String,
+          value:"default"
+        },
+        idade:{
+          type: Number
+        }
+    },
+    listeners:{
+      "seila":"clicked",
+      "click":"clicked"
+    },
+      // created: function(){
+      //
+      // },
+      ready: function(){
+        // this.$.button.addEventListener("click",()=>{
+        //   this.clicked()
+        // })
+        // this.$$("componente-nome").addEventListener("seila",()=> this.clicked())
+      },
+      // attached: function(){
+      //
+      // },
+      // detached: function(){
+      //
+      // },
+      // attributoChange: function(){
+      //
+      // },
+      clicked: function(e){
+        console.log(e.target);
+        console.log("Funfou o click doido")
+        this.name="Halyson"
+        this.idade="19"
+      }
+  })
+  </script>
+</dom-module>

@@ -1,0 +1,45 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../bower_components/paper-styles/default-theme.html">
+
+<dom-module id="impressive-form">
+  <style>
+    paper-button{
+      background-color: var(--primary-color);
+      color: white;
+      margin-left: 0px;
+      margin-top: 1em;
+    }
+  </style>
+    <template>
+      <paper-input label="Pequena descrição" id="description"></paper-input>
+      <paper-textarea label="Codigo" id="code" rows="3"></paper-textarea>
+      <paper-input label="Linguagem" id="linguagem"></paper-input>
+      <paper-button raised on-tap="addSnippet">Birrl</paper-button>
+    </template>
+
+<script>
+    Polymer({
+      is:"impressive-form",
+      properties:{
+        collection:{
+          type:Array,
+          notify:true
+        }
+      },
+          addSnippet: function(){
+            var codeObj = {
+              description: this.$.description.value,
+              code:this.$.code.value,
+              linguagem: this.$.linguagem.value
+            };
+            this.push("collection",codeObj);
+            console.log("Vem do Form");
+            console.log(this.collection);
+        }
+      })
+  </script>
+</dom-module>

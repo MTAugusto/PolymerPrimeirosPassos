@@ -1,0 +1,22 @@
+<dom-module id="componente-nome">
+  <template>
+    <span>Meu nome é {{name}}</span>
+  </template>
+  <script>
+    Polymer({
+      is:"componente-nome",
+      properties:{
+        name:{
+          type:String,
+          value: "default",
+          notify: true
+        }
+      },
+        ready:function(){
+          setTimeout(()=>{            
+            this.fire("seila")
+          },3000)
+        }
+    })
+  </script>
+</dom-module>

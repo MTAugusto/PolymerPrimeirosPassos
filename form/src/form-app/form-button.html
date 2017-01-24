@@ -1,0 +1,22 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="./hidden-behavior.html">
+
+<dom-module id="form-button">
+  <style>
+    button{
+                                                   /*valor por default*/
+      /*background-color: var(--form-button-backgroud,red);*/
+      @apply(--form-button-theme)
+    }
+  </style>
+  <template>
+    <button>Enviar</button>
+  </template>
+  <script>
+    Polymer({
+      is:"form-button",
+      behaviors:[FormApp.Hidding]
+    })
+
+  </script>
+</dom-module>
